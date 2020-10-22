@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1603356467022,
+  "timestamp": 1603356938239,
   "index": "/NgToDoDemo/index.html",
   "assetGroups": [
     {
@@ -275,10 +275,10 @@
     "/NgToDoDemo/assets/shapes.svg": "5413e95adabcb2cb639970051f55e0ddb64ace53",
     "/NgToDoDemo/common-es2015.5ba1bd739b37c0d5b62a.js": "5a08ccc29ab2883312a1ea3bbb8f9f4fdbda958f",
     "/NgToDoDemo/common-es5.5ba1bd739b37c0d5b62a.js": "f0fedf36adae5bcd1f1b83329baf976ad472c04b",
-    "/NgToDoDemo/index.html": "8ab7eaa7ff9df58074a7d9818ab386efc03e56b0",
+    "/NgToDoDemo/index.html": "ecc3e2ee91e049fec4aad62c87cf373d96aff691",
     "/NgToDoDemo/main-es2015.18d6550d8a1d66f7667a.js": "a99acf6b4d2d486d860facbaa79570344fdd3da4",
     "/NgToDoDemo/main-es5.18d6550d8a1d66f7667a.js": "a737f647d3b9257bddfe8556d662417414272d5d",
-    "/NgToDoDemo/manifest.webmanifest": "5775fd3342e10db38f2e0194a40424a5d3b302f6",
+    "/NgToDoDemo/manifest.webmanifest": "c7c00d6b3da50bcd879905d77af96093dd86c98c",
     "/NgToDoDemo/polyfills-core-js-es2015.22f1882a210e2656646e.js": "f007c630c357ee7eeec2289a6cfc013dbcbe6fe9",
     "/NgToDoDemo/polyfills-core-js-es5.22f1882a210e2656646e.js": "8531ee642b05d9e12e859babeaec61c2b1c1e57a",
     "/NgToDoDemo/polyfills-css-shim-es2015.22cdb8d3838f1709ac9b.js": "5ee260a7051a19dcf88aeaed726570fa19ac1d4c",
