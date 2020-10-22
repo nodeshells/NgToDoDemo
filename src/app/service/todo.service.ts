@@ -13,7 +13,6 @@ export class TodoService {
 
   constructor() {
     this.todoSubject.subscribe(state => {
-      console.log(state);
       localStorage.setItem('todo', JSON.stringify(state));
     });
   }
