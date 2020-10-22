@@ -17,6 +17,7 @@ interface AlertForm {
 })
 export class TodoPage implements OnInit {
   todoState = this.todo.todoState;
+  disableButton = false;
 
   constructor(private todo: TodoService, private alertController: AlertController) {
   }
@@ -26,25 +27,33 @@ export class TodoPage implements OnInit {
    this.todoState = of(this.todo.loadBackup());
   }
 
+  onDisableButton(e){
+    // console.log(e);
+    this.disableButton = !this.disableButton;
+    this.disableButton = false;
+  }
+
   addToDo() {
     this.todo.addTodo({label: ''});
   }
 
   deleteToDo(id: number) {
+    this.onDisableButton({});
     this.todo.deleteTodo(id);
   }
 
   async updateToDo(id: number, todo: Todo) {
-   const formData = await this.presentAlertPrompt(todo);
-   if (!formData){
+    this.onDisableButton({});
+    const formData = await this.presentAlertPrompt(todo);
+    if (!formData){
      return;
    }
-   const updateObject: Todo = {
+    const updateObject: Todo = {
      create_at: formData.ToDoDate,
      label: formData.ToDoLabel,
      content: formData.ToDoContent
    };
-   this.todo.updateTodo(id, updateObject);
+    this.todo.updateTodo(id, updateObject);
   }
 
   private async presentAlertPrompt(todo: Todo): Promise<AlertForm> {
