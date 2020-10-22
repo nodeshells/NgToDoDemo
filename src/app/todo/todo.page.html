@@ -13,8 +13,10 @@
       <ion-item-sliding *ngFor="let todo of todoState | async; let i = index">
         <ion-item-options side="start">
           <ion-item-option color="danger" (click)="deleteToDo(i)">
-            <ion-icon slot="start" name="trash"></ion-icon>
-            削除
+            <ion-button fill="clear" color="light">
+              <ion-icon slot="start" name="trash"></ion-icon>
+              削除
+            </ion-button>
           </ion-item-option>
         </ion-item-options>
         <ion-item button="true" (click)="updateToDo(i, todo)">
@@ -26,8 +28,10 @@
         </ion-item>
         <ion-item-options side="end">
           <ion-item-option (click)="updateToDo(i, todo)">
-            <ion-icon slot="start" name="create"></ion-icon>
-            編集
+            <ion-button fill="clear" color="light">
+              <ion-icon slot="start" name="create"></ion-icon>
+              編集
+            </ion-button>
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
