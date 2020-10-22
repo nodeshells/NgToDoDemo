@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../service/todo.service';
 import {AlertController} from '@ionic/angular';
 import {Todo} from '../interface/todo';
+import {of} from 'rxjs';
 
 interface AlertForm {
   ToDoDate: string;
@@ -17,9 +18,12 @@ interface AlertForm {
 export class TodoPage implements OnInit {
   todoState = this.todo.todoState;
 
-  constructor(private todo: TodoService, private alertController: AlertController) {}
+  constructor(private todo: TodoService, private alertController: AlertController) {
+  }
 
   ngOnInit() {
+    // バックアップを取得してViewに反映
+   this.todoState = of(this.todo.loadBackup());
   }
 
   addToDo() {

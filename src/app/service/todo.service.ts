@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import {Observable, ReplaySubject, Subject} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Observable, of, Subject} from 'rxjs';
 import {Todo, TodoState} from '../interface/todo';
-import {map, take} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,10 @@ export class TodoService {
   todoState: Observable<Todo[]> = this.todoSubject.asObservable().pipe(map(state => state.todoList));
 
   constructor() {
+    this.todoSubject.subscribe(state => {
+      console.log(state);
+      localStorage.setItem('todo', JSON.stringify(state));
+    });
   }
 
   addTodo(todoData: Todo){
@@ -27,6 +31,15 @@ export class TodoService {
   updateTodo(id: number, todoData: Todo){
     this.todo.updateTodo(id, todoData);
     this.todoSubject.next(this.todo);
+  }
+
+   loadBackup(){
+    const todoBackup = JSON.parse(localStorage.getItem('todo')) as TodoState;
+    if (todoBackup){
+        this.todo.todoList = [...todoBackup.todoList];
+        this.todoSubject.next(this.todo);
+    }
+    return this.todo.todoList;
   }
 
 }
