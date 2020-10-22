@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ToDo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-list *ngFor="let todo of todoState | async; let i = index">
+      <ion-item button="true" (click)="updateToDo(i, todo)">
+        <ion-button slot="start" fill="outline" color="danger" (click)="deleteToDo(i)">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          削除
+        </ion-button>
+        <ion-label *ngIf="todo?.label" class="ion-text-wrap">
+          {{todo?.create_at |  date:"yyyy年MM月dd日"}}<br>
+          {{todo?.label}}
+        </ion-label>
+        <ion-label *ngIf="!todo?.label" class="ion-text-wrap">予定を入力してください</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" class="ion-margin" (click)="addToDo()">
+      <ion-icon slot="start" name="add"></ion-icon>
+      予定追加
+    </ion-button>
+  </ion-card>
+</ion-content>
