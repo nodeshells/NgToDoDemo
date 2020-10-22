@@ -16,7 +16,7 @@
           削除
         </ion-button>
         <ion-label *ngIf="todo?.label" class="ion-text-wrap">
-          {{todo?.create_at |  date:"yyyy年MM月dd日"}}<br>
+          <p>No{{i + 1}}: {{todo?.create_at |  date:"yyyy年MM月dd日"}}</p>
           {{todo?.label}}
         </ion-label>
         <ion-label *ngIf="!todo?.label" class="ion-text-wrap">予定を入力してください</ion-label>
