@@ -9,33 +9,18 @@
 
 <ion-content class="ion-padding">
   <ion-card>
-    <ion-list>
-      <ion-item-sliding *ngFor="let todo of todoState | async; let i = index">
-        <ion-item-options side="start">
-          <ion-item-option color="danger">
-            <ion-button [disabled]="disableButton" fill="clear" color="light" expand="full" (click)="deleteToDo(i)">
-              <ion-icon slot="start" name="trash"></ion-icon>
-              削除
-            </ion-button>
-          </ion-item-option>
-        </ion-item-options>
-        <ion-item button="true" (click)="updateToDo(i, todo)">
-          <ion-label *ngIf="todo?.label" class="ion-text-wrap">
-            {{todo?.create_at |  date:"yyyy年MM月dd日"}}<br>
-            {{todo?.label}}
-          </ion-label>
-          <ion-label *ngIf="!todo?.label" class="ion-text-wrap">予定を入力してください</ion-label>
-        </ion-item>
-        <ion-item-options side="end">
-          <ion-item-option>
-            <ion-button [disabled]="disableButton" fill="clear" color="light" expand="full"
-                        (click)="updateToDo(i, todo)">
-              <ion-icon slot="start" name="create"></ion-icon>
-              編集
-            </ion-button>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
+    <ion-list *ngFor="let todo of todoState | async; let i = index">
+      <ion-item button="true" (click)="updateToDo(i, todo)">
+        <ion-button slot="start" fill="outline" color="danger" (click)="deleteToDo(i)">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          削除
+        </ion-button>
+        <ion-label *ngIf="todo?.label" class="ion-text-wrap">
+          {{todo?.create_at |  date:"yyyy年MM月dd日"}}<br>
+          {{todo?.label}}
+        </ion-label>
+        <ion-label *ngIf="!todo?.label" class="ion-text-wrap">予定を入力してください</ion-label>
+      </ion-item>
     </ion-list>
     <ion-button expand="full" class="ion-margin" (click)="addToDo()">
       <ion-icon slot="start" name="add"></ion-icon>
